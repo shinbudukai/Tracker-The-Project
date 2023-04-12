@@ -6,11 +6,13 @@ from django.contrib.auth import views as auth_views
  
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+   # path('', views.home, name='home'),
+    path('', views.homePage, name='homePage'),
     path('index/', views.index, name='index'),
     path('register/',views.register,name='register'),
     path('handleSignup/',views.handleSignup,name='handleSignup'),
     path('handlelogin/',views.handlelogin,name='handlelogin'),
+    path('',views.home,name = 'home'),
     path('handleLogout/',views.handleLogout,name='handleLogout'),
     path('reset_password/',auth_views.PasswordResetView.as_view(template_name = "home/reset_password.html"),name='reset_password'),
     path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(template_name="home/reset_password_sent.html"),name='password_reset_done'),

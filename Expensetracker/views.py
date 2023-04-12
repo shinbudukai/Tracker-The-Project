@@ -7,15 +7,18 @@ from .models import Addmoney_info,UserProfile
 from django.contrib.sessions.models import Session
 from django.core.paginator import Paginator, EmptyPage , PageNotAnInteger
 from django.db.models import Sum
+from django.shortcuts import render
 from django.http import JsonResponse
 import datetime
 from django.utils import timezone
 # Create your views here.
 def home(request):
     if request.session.has_key('is_logged'):
-        return redirect('/index')
+        return redirect('/homePage')
     return render(request,'home/login.html')
    # return HttpResponse('This is home')
+def homePage(request):
+    return render(request, 'home/homePage.html')
 def index(request):
     if request.session.has_key('is_logged'):
         user_id = request.session["user_id"]
@@ -37,7 +40,8 @@ def register(request):
     #return HttpResponse('This is blog')
 def password(request):
     return render(request,'home/password.html')
-
+def homepage(request):
+    return render(request, 'home/homePage.html')
 def charts(request):
     return render(request,'home/charts.html')
 def search(request):
