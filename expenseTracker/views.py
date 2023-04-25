@@ -17,9 +17,14 @@ from django.shortcuts import render,redirect
 # Create your views here.
 def home(request):
     if request.session.has_key('is_logged'):
-        return redirect('/index')
+        return redirect('/homepage')
     return render(request,'home/login.html')
    # return HttpResponse('This is home')
+
+def homePage(request):
+    return render(request, 'homePage.html')
+
+
 def index(request):
     if request.session.has_key('is_logged'):
         user_id = request.session["user_id"]
@@ -154,7 +159,7 @@ def handlelogin(request):
             user = request.user.id 
             request.session["user_id"] = user
             messages.success(request, " Successfully logged in")
-            return redirect('/index')
+            return redirect('/homepage')
         else:
             messages.error(request," Invalid Credentials, Please try again")  
             return redirect("/")  

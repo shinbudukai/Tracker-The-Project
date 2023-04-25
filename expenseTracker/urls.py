@@ -6,7 +6,8 @@ from django.contrib.auth import views as auth_views
  
 urlpatterns = [
     #expenseTracker views
-    path('', views.home, name='home'),    
+    path('', views.home, name='home'),
+    path('homepage/', views.homePage, name='homePage'),
     path('index/', views.index, name='index'),
     path('register/',views.register,name='register'),
     path('handleSignup/',views.handleSignup,name='handleSignup'),
