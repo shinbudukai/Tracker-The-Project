@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'expenseTracker',
     'Fityfeed',
+    'todo_app',
 ]
 
 MIDDLEWARE = [
