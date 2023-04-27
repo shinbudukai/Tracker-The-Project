@@ -18,11 +18,11 @@ from django.shortcuts import render,redirect
 def home(request):
     if request.session.has_key('is_logged'):
         return redirect('/homepage')
-    return render(request,'home/login.html')
+    return render(request,'home/loginBoostrap.html')
    # return HttpResponse('This is home')
 
 def homePage(request):
-    return render(request, 'homePage.html')
+    return render(request, 'homepageBoostrap.html')
 
 
 def index(request):
@@ -42,7 +42,7 @@ def index(request):
     return redirect('home')
     #return HttpResponse('This is blog')
 def register(request):
-    return render(request,'home/register.html')
+    return render(request,'home/signUpBoostrap.html')
     #return HttpResponse('This is blog')
 def password(request):
     return render(request,'home/password.html')
