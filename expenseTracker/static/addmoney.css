@@ -10,7 +10,7 @@ body, html {
   }
   .bg-image {
 	/* The image used */
-	background-image: url("../static/img/coin.jpg");
+	background-image: url("../static/img/expenseAdd.jpg");
   
 	/* Add the blur effect */
 	filter: blur(8px);
@@ -24,6 +24,8 @@ body, html {
 	background-repeat: no-repeat;
 	background-size: cover;
   }
+
+  
   
   /* Position text in the middle of the page/image */
   .bg-text {
@@ -31,7 +33,7 @@ body, html {
 	background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
 	color: white;
 	font-weight: bold;
-  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-family: "Poppins", Arial, sans-serif;
   border: 3px solid #f1f1f1;
 	position: absolute;
 	top: 50%;
@@ -45,19 +47,45 @@ body, html {
   .btn{
   padding-top: 20px;}
   
-  .btn button{
-	  background-color: green;
-	  font-family: 'Big Shoulders Stencil Display', cursive;
-  color: white;
-	  border-radius: 20px;
-	  padding: 10px;
-	  
+  .button {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 8px 25px;
+	border-radius: 4px;
   }
-  
-  .btn button:hover{
-	  background-color: darkgreen;
-	  transition: 1s;
-   box-shadow: 5px 5px 5px 5px black;
+  .button-primary {
+	position: relative;
+	background-color: #c0ca33;
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: 700;
+	transition: color 0.3s ease-in;
+	z-index: 1;
   }
-  
+  .button-primary:hover {
+	color: #c0ca33;
+	text-decoration: none;
+  }
+  .button-primary::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: #fff;
+	border-radius: 4px;
+	opacity: 0;
+	-webkit-transform: scaleX(0.8);
+	-ms-transform: scaleX(0.8);
+	transform: scaleX(0.8);
+	transition: all 0.3s ease-in;
+	z-index: -1;
+  }
+  .button-primary:hover::after {
+	opacity: 1;
+	-webkit-transform: scaleX(1);
+	-ms-transform: scaleX(1);
+	transform: scaleX(1);
+  }
 			  

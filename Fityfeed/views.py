@@ -130,4 +130,3 @@ def addFooditem(request):
     form=addUserFooditem()
     context={'form':form}
     return render(request,'addUserFooditem.html',context)
-

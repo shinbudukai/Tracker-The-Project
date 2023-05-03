@@ -106,7 +106,7 @@ h2 {
   padding: 0;
   font-weight: bold;
   color: #222;
-  font-family: 'Roboto Slab';
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 20px;
   margin-bottom: 30px;
   text-transform: uppercase; }
@@ -125,7 +125,7 @@ body {
   font-size: 13px;
   line-height: 1.8;
   color: #fff;
-  background-image: url("../images/body-bg.jpg");
+  background-image: url("../images/signUp.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
@@ -134,7 +134,7 @@ body {
   -ms-background-size: cover;
   background-position: center center;
   font-weight: 400;
-  font-family: 'Roboto Slab';
+  font-family: "Poppins", Arial, sans-serif;
   margin: 0px; }
 
 .main {

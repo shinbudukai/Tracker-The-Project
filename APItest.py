@@ -15,3 +15,6 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 
 print(response.json())
+d = response.json()
+
+print(d['timezones'][0])

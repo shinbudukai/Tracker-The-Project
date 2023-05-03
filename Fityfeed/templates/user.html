@@ -1,20 +1,23 @@
 {% extends 'main.html' %}
 {% block content %}
-<head> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></head>
+<head> 
+
+
+
+</head>
 <h3>Total number of items consumed today: {{cnt}}</h3>
 
 <div class="today">
-	<h2>Tracker</h2>
 	<div class="flex-box-row">
 		<h3>Calorie Limit: 2000</h3>
-		<h3>totalCalories consumed: {{totalCalories}}</h3>
+		<h3>Total Calories Consumed: {{totalCalories}}</h3>
 		<h3>Left: {{ CalorieLeft }}</h3>
 	</div>
 	
-    <div class="card card-body">
-        <table>
+    <div class="card">
+        <table class=" table table-bordered table-dark table-hover">
             <tr>
-                <th>fooditem</th>
+                <th>Food Item</th>
                 <th>Calorie</th>
                 <th>Carbs</th>
                 <th>Fats</th>
@@ -33,7 +36,7 @@
 	</div>
 	<form action="{% url 'addFooditem' %}" method="POST">
 		{%csrf_token%}
-		<button type="submit" class="btn btn-success">
+		<button type="submit" class="button-primary"> Add Food
 			<span class="glyphicon glyphicon-plus"></span>
 		</button>
 	</form> 
@@ -45,7 +48,7 @@
 		<div class="card card-body">
 			<form method="get">
 				{{myfilter.form}}
-		    <button class="btn btn-primary" type="submit">Search</button>
+		    <button class="button-primary" type="submit">Search</button>
 		  </form>
 		</div>
 	</div>
@@ -56,9 +59,9 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
-			<table class="table table-sm">
+			<table class="table table-bordered table-dark table-hover">
 				<tr>
-					<th>fooditem</th>
+					<th>Food Item</th>
 					<th>Calorie</th>
 					<th>Carbs</th>
 					<th>Fats</th>

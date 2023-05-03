@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'todo_app',
     'bootstrap5',
     'django_sass',
+    'maps',
 ]
 
 COMPRESS_PRECOMPILERS = (

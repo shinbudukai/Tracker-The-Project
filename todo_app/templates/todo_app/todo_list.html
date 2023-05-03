@@ -5,7 +5,9 @@
 <div>
     <div>
         <div>
-            <h3>Edit list:</h3>
+            <a href="javascript:window.location = '{% url "indexTodo" %}'" style="font-size: 20px; " class="button button-primary" >All my lists</a>
+            <h3>Edit list:</h3> 
+          
             <h5>{{ todo_list.title|upper}}</h5>
         </div>
         <ul>

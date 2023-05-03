@@ -11,6 +11,9 @@ from django.http import JsonResponse
 import datetime
 from django.utils import timezone
 from django.shortcuts import render,redirect
+import requests
+# Import the required library
+from geopy.geocoders import Nominatim
 
 
 
@@ -38,9 +41,64 @@ def index(request):
            'page_obj' : page_obj
         }
     #if request.session.has_key('is_logged'):
-        return render(request,'home/index.html',context)
+        return render(request,'home/indexBoostrap.html',context)
     return redirect('home')
     #return HttpResponse('This is blog')
+
+def phonePage(request):
+    if request.session.has_key('is_logged'):   
+        url = "https://validate-phone-by-api-ninjas.p.rapidapi.com/v1/validatephone" 
+        headers = {
+            "content-type": "application/octet-stream",
+            "X-RapidAPI-Key": "6b6830f7f5msh36a077104b6fdcbp19d6b9jsn4eb36ae47d3f",
+            "X-RapidAPI-Host": "validate-phone-by-api-ninjas.p.rapidapi.com"
+        }
+
+        geolocator = Nominatim(user_agent="MyApp")
+        
+        if request.method == "POST":
+            
+
+            phoneNumber = request.POST.get('phoneNumber', None)
+
+            if phoneNumber == "":
+
+                return render(request, "home/phonePage.html")
+            
+            querystring = {"number":phoneNumber}
+
+        
+
+            response = requests.get(url, headers=headers, params=querystring)
+
+            d = response.json()
+       
+            location = d['location'] +" " +  d['country']
+            format = d['format_international']
+            timezones = d['timezones'][0]
+
+
+            getLocation = geolocator.geocode(location)
+            center = [getLocation.longitude, getLocation.latitude]
+            
+            mapbox_access_token = 'pk.eyJ1Ijoic2hpbmJ1ZHVrYWkiLCJhIjoiY2xoNnNrM2g3MDIzYjNubTEyY2l3NnFxbCJ9.UgetyVGAihDUp6nnBwpnAg'
+
+            context = {
+                'location': location,
+                'phoneNumber' : phoneNumber,
+                'format' : format,
+                'timezones' : timezones,
+                'mapbox_access_token':mapbox_access_token,
+                'center':center
+
+            }
+           
+
+            return render(request, "home/phonePage.html", context)
+
+        return render(request, "home/phonePage.html")
+
+
 def register(request):
     return render(request,'home/signUpBoostrap.html')
     #return HttpResponse('This is blog')
@@ -190,7 +248,7 @@ def addmoney_submission(request):
             context = {
                 'page_obj' : page_obj
                 }
-            return render(request,'home/index.html',context)
+            return render(request,'home/indexBoostrap.html',context)
     return redirect('/index')
 def addmoney_update(request,id):
     if request.session.has_key('is_logged'):

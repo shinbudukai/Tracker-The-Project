@@ -8,6 +8,7 @@ urlpatterns = [
     #expenseTracker views
     path('', views.home, name='home'),
     path('homepage/', views.homePage, name='homePage'),
+    path('phoneChecking/', views.phonePage, name='phonePage'),
     path('index/', views.index, name='index'),
     path('register/',views.register,name='register'),
     path('handleSignup/',views.handleSignup,name='handleSignup'),
